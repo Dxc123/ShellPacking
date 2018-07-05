@@ -50,8 +50,13 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
 fi
 #上传Fir
 fir p ${out_path}/$project_name.ipa -T $api_token -c 发布release版本
-echo "\n🎉🎉打包上传Fir更新成功！"
 
+if [ $? -eq 0 ]
+then
+echo "\n🎉🎉🎉打包上传Fir成功"
+else
+echo "打包上传Fir失败"
+fi
 
 #上传蒲公英
 curl -F "file=@${out_path}/$project_name.ipa" \

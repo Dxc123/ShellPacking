@@ -48,8 +48,13 @@ fi
 
 #上传Fir
 fir p ${out_path}/$project_name.ipa -T $api_token -c 发布debug版本
+if [ $? -eq 0 ]
+then
+echo "\n🎉🎉🎉打包上传Fir成功"
+else
+echo "打包上传Fir失败"
+fi
 
-echo "\n🎉🎉打包上传Fir更新成功！"
 
 
 #上传蒲公英
